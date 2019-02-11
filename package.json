@@ -1,0 +1,24 @@
+{
+  "name": "ecommerce_mongodb_node",
+  "version": "1.0.0",
+  "description": "A simple eCommerce site powered by Node",
+  "main": "server.js",
+  "scripts": {
+    "test": "y"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afw821/eCommerce_MongoDB_Node.git"
+  },
+  "author": "Alex Watkins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afw821/eCommerce_MongoDB_Node/issues"
+  },
+  "homepage": "https://github.com/afw821/eCommerce_MongoDB_Node#readme",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.11"
+  }
+}
