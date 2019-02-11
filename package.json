@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/afw821/eCommerce_MongoDB_Node#readme",
   "dependencies": {
+    "config": "^3.0.1",
     "debug": "^4.1.1",
     "express": "^4.16.4",
     "mongoose": "^5.4.11"

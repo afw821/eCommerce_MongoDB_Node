@@ -1,4 +1,4 @@
-
+const config = require('config');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require ('path');
@@ -16,10 +16,12 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+startupDebugger(`Application Name: ${config.get('name')}`);
+startupDebugger(`Mail Server: ${config.get('mail.host')}`);
 if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } else {
-    mongoose.connect('mongodb://localhost/MLBDB', { useNewUrlParser: true})
+    mongoose.connect('mongodb://localhost/alexsoutdoor', { useNewUrlParser: true})
 }
 
 app.listen(PORT, () => {
