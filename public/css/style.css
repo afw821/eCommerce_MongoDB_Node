@@ -1,6 +1,14 @@
  body{
     background-image: url('../assets/fly_fish\ copy.jpg');
+    
+    background-repeat:no-repeat;
+    background-size: cover; 
+    
+    
 } 
+.z-index{
+    z-index: -1000;
+}
 .card-margin{
     margin-bottom: 15px;
     opacity: 0.8;

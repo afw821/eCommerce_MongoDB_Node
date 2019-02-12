@@ -1,5 +1,5 @@
 const Product = require('../models/Product');
-
+const Buyer = require('../models/Buyer');
 module.exports = function (app) {
     app.get('/api/products', (req, res) => {
         Product.find({})
@@ -37,8 +37,34 @@ module.exports = function (app) {
             .catch((err) => {
                 res.json(err);
             })
-
-    })
+    });
+    app.post('/api/buyer', (req, res) => {
+        Buyer.create(req.body)
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json(err);
+        });
+    });
+    app.get('/api/buyer', (req, res) => {
+        Buyer.find({})
+        .then((data) => {
+            res.json(data);
+        })
+        .then((err) => {
+            res.json(err);
+        });
+    });
+    app.get('/api/buyer/:id', (req, res) => {
+        Buyer.find({ _id: req.params.id })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json(err);
+        });
+    });
 
 
 }
