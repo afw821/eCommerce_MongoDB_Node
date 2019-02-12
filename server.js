@@ -4,8 +4,7 @@ const mongoose = require('mongoose');
 const path = require ('path');
 const startupDebugger = require('debug')('app:startup');
 const app = express();
-require('./routes/api-routes');
-require('./routes/html-routes');
+
 
 const PORT = process.env.PORT || 8080;
 startupDebugger(`Environment: ${process.env.NODE_ENV}`);
@@ -21,11 +20,12 @@ startupDebugger(`Mail Server: ${config.get('mail.host')}`);
 if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } else {
-    mongoose.connect('mongodb://localhost/alexsoutdoor', { useNewUrlParser: true})
+    mongoose.connect('mongodb://localhost/alexs-outdoor', { useNewUrlParser: true})
     .then(() => startupDebugger('Connected to MongoDB'))
     .catch((err) => startupDebugger('Could not connect to MongoDB..', err))
 }
-
+require('./routes/api-routes')(app);
+require('./routes/html-routes')(app);
 app.listen(PORT, () => {
     startupDebugger(`App is listening on PORT: ${PORT}`);
 });

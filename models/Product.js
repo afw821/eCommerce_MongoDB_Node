@@ -11,12 +11,9 @@ const ProductSchema = new Schema ({
     department: {
         type: String,
         required: true,
-        enum: ['Fishing', 'Hunting', 'Camping']
+        enum: ['Fishing', 'Hunting', 'Camping', 'Sporting']
     },
-    date: {
-        type: Date,
-        default: Date.now
-    },
+  
     price: {
         type: Number,
         required: true
