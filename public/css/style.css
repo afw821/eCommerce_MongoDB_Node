@@ -1,3 +1,14 @@
-/* body{
-    background-image: url()
-} */
+ body{
+    background-image: url('../assets/fly_fish\ copy.jpg');
+} 
+.card-margin{
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+.nav-opc{
+    opacity:0.8;
+}
+.item-image{
+    width:200px;
+    height: 200px;
+}

@@ -17,6 +17,11 @@ const ProductSchema = new Schema ({
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: true,
+        minlength: 10
+    },
     price: {
         type: Number,
         required: true
