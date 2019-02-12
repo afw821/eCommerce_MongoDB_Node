@@ -22,6 +22,8 @@ if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } else {
     mongoose.connect('mongodb://localhost/alexsoutdoor', { useNewUrlParser: true})
+    .then(() => startupDebugger('Connected to MongoDB'))
+    .catch((err) => startupDebugger('Could not connect to MongoDB..', err))
 }
 
 app.listen(PORT, () => {
