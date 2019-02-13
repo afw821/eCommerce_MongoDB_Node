@@ -38,6 +38,7 @@ module.exports = function (app) {
                 res.json(err);
             })
     });
+    //api routes for the buyer
     app.post('/api/buyer', (req, res) => {
         Buyer.create(req.body)
         .then((data) => {
