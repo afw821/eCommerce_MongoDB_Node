@@ -1,7 +1,8 @@
 const Product = require('../models/Product');
 const Buyer = require('../models/Buyer');
+const router = express.Router();
 module.exports = function (app) {
-    app.get('/api/products', (req, res) => {
+    app.get('/', (req, res) => {
         Product.find({})
             .then(function(data) {
                 
@@ -11,7 +12,7 @@ module.exports = function (app) {
                 res.json(err);
             });
     });
-    app.post('/api/products', function (req, res) {
+    app.post('/', function (req, res) {
         Product.create(req.body)
         .then(function (data) {
             res.json(data)
@@ -20,7 +21,7 @@ module.exports = function (app) {
             res.json(err);
         });
     });
-    app.get('/api/products/:id', (req, res) => {
+    app.get('/:id', (req, res) => {
         Product.find({ _id: req.params.id })
             .then((data) => {
                 res.json(data);
@@ -29,7 +30,7 @@ module.exports = function (app) {
                 res.json(err);
             });
     });
-    app.put('/api/products/:id', (req, res) => {
+    app.put('/:id', (req, res) => {
         Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
             .then((data) => {
                 res.json(data);
