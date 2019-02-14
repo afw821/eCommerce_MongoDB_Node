@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 startupDebugger(`Environment: ${process.env.NODE_ENV}`);
 const apiroutes = require('./routes/api-routes');
+const apibuyer = require('./routes/api-buyer-routes');
 const htmlroutes = require('./routes/html-routes')(app);
 app.use(express.urlencoded({ extended : true}));
 
@@ -16,7 +17,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/products', apiroutes);
-app.use('/api/buyer', apiroutes);
+app.use('/api/buyer', apibuyer);
 startupDebugger(`Application Name: ${config.get('name')}`);
 startupDebugger(`Mail Server: ${config.get('mail.host')}`);
 if(process.env.MONGODB_URI) {

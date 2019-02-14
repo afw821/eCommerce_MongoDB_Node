@@ -21,6 +21,8 @@ $(function () {
             let imgUrl = res[i].imgurl;
             console.log(res[i].description);
             let itemDescription = res[i].description;
+            let itemSize = res[i].size;
+            console.log(itemSize);
             let cardDiv = $('<div>', {
                 class: 'card text-center card-margin',
                 'data-productid': productId

@@ -1,10 +1,10 @@
+const Product = require('../models/Product')
 
-const Buyer = require('../models/Buyer');
 const express = require('express');
 const router = express.Router();
 
     router.get('/', (req, res) => {
-        Buyer.find({})
+        Product.find({})
             .then(function(data) {
                 
                 res.json(data);
@@ -14,7 +14,7 @@ const router = express.Router();
             });
     });
     router.post('/', function (req, res) {
-        Buyer.create(req.body)
+        Product.create(req.body)
         .then(function (data) {
             res.json(data)
         })
@@ -23,7 +23,7 @@ const router = express.Router();
         });
     });
     router.get('/:id', (req, res) => {
-        Buyer.find({ _id: req.params.id })
+        Product.find({ _id: req.params.id })
             .then((data) => {
                 res.json(data);
             })
@@ -32,7 +32,7 @@ const router = express.Router();
             });
     });
     router.put('/:id', (req, res) => {
-        Buyer.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
             .then((data) => {
                 res.json(data);
             })

@@ -17,6 +17,10 @@ const ProductSchema = new Schema ({
         type: String,
         required: true
     },
+    size: {
+        type: Number,
+        required: false
+    },
     description: {
         type: String,
         required: true,
@@ -27,7 +31,8 @@ const ProductSchema = new Schema ({
         required: true
     },
     stockquantity: {
-        type: Number
+        type: Number,
+        required: true
     } 
 });
 
