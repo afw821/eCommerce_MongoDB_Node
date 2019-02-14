@@ -10,8 +10,8 @@ const ProductSchema = new Schema ({
     },
     department: {
         type: String,
-        required: true,
-        enum: ['Fishing', 'Hunting', 'Camping', 'Sporting', 'Leisure']
+        // required: true,
+        // enum: ['Fishing', 'Hunting', 'Camping', 'Sporting', 'Leisure']
     },
     imgurl: {
         type: String,
