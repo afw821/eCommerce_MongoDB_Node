@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/products', apiroutes);
+app.use('/api/buyer', apiroutes);
 startupDebugger(`Application Name: ${config.get('name')}`);
 startupDebugger(`Mail Server: ${config.get('mail.host')}`);
 if(process.env.MONGODB_URI) {
