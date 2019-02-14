@@ -4,7 +4,7 @@ $('.all-products').on('click', function (e) {
     $('.jumbotron').fadeOut(250, function () {
         $(this).addClass('hide');
     });
-    $('.card-div').fadeIn(750, function () {
+    $('.card-div-all').fadeIn(750, function () {
         return;
     });
 });
@@ -13,10 +13,13 @@ $('.all-products').on('click', function (e) {
 
 $('.home-button').on('click', function (e) {
     e.preventDefault();
-    $('.card-div').fadeOut(250, function () {
+    $('.card-div-all').fadeOut(250, function () {
         $(this).addClass('hide');
     });
     $('.card-div-fishing').fadeOut(250, function () {
+        $(this).addClass('hide');
+    });
+    $('.card-div-hunting').fadeOut(250, function () {
         $(this).addClass('hide');
     });
     $('.jumbotron').fadeIn(750, function () {

@@ -38,14 +38,11 @@ router.get('/department/:department', (req, res) => {
             return;
         }
         res.json(doc);
-    })
-    // .then((data) => {
-    //     res.json(data);
-    // })
-    // .catch((err) => {
-    //     res.json(err);
-    // });
+    });
 });
+// router.get('/department/:department', (req, res) => {
+//     Product.find({ department:})
+// })
 router.put('/:id', (req, res) => {
     Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then((data) => {
