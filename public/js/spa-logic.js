@@ -22,6 +22,9 @@ $('.home-button').on('click', function (e) {
     $('.card-div-hunting').fadeOut(250, function () {
         $(this).addClass('hide');
     });
+    $('.card-div-camping').fadeOut(250, function () {
+        $(this).addClass('hide');
+    });
     $('.jumbotron').fadeIn(750, function () {
         return;
     });

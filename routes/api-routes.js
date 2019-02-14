@@ -40,9 +40,7 @@ router.get('/department/:department', (req, res) => {
         res.json(doc);
     });
 });
-// router.get('/department/:department', (req, res) => {
-//     Product.find({ department:})
-// })
+
 router.put('/:id', (req, res) => {
     Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then((data) => {
