@@ -8,7 +8,7 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 startupDebugger(`Environment: ${process.env.NODE_ENV}`);
-const apiroutes = require('./routes/api-routes')(app);
+const apiroutes = require('./routes/api-routes');
 const htmlroutes = require('./routes/html-routes')(app);
 app.use(express.urlencoded({ extended : true}));
 
