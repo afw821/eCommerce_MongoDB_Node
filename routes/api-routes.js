@@ -2,6 +2,7 @@ const Product = require('../models/Product')
 
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 
 router.get('/', (req, res) => {
     Product.find({})
@@ -40,7 +41,15 @@ router.get('/department/:department', (req, res) => {
         res.json(doc);
     });
 });
-
+router.get('/department', (req, res) => {
+    Product.find({ department: "Sporting", department: "Leisure" })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            res.json(err);
+        });
+});
 router.put('/:id', (req, res) => {
     Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then((data) => {
