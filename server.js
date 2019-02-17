@@ -8,6 +8,7 @@ const app = express();
 
 const PORT = process.env.PORT || 8082;
 console.log(`Environment: ${process.env.NODE_ENV}`);
+startupDebugger('working');
 const apiroutes = require('./routes/api-routes');
 const apibuyer = require('./routes/api-buyer-routes');
 const htmlroutes = require('./routes/html-routes')(app);
