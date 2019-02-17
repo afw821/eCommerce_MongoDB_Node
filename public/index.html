@@ -12,50 +12,83 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light nav-opc">
-                <a class="navbar-brand">Alex's Outdoor</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-        
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link home-button" href="#">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link cart" href="#">Login</a>
-                        </li>
-                   
-                        <!-- <li class="nav-item">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-opc">
+        <a class="navbar-brand">Alex's Outdoor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link home-button register" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link cart login" href="#">Login</a>
+                </li>
+
+                <!-- <li class="nav-item">
                             <a class="nav-link disabled" href="#">Disabled</a>
                         </li> -->
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search our site" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
-            <nav class="nav-opc" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Register</a></li>
-                    <li class="breadcrumb-item"><a href="#">Login</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"></li>
-                </ol>
-            </nav>
-        <div class="container">
-            <div class="jumbotron">
-                <h1 class="display-4">Register</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <p class="lead">
-                  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                </p>
-              </div>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search our site" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
+    </nav>
+    <nav class="nav-opc" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Register</a></li>
+            <li class="breadcrumb-item"><a href="#">Login</a></li>
+            <li class="breadcrumb-item active" aria-current="page"></li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="jumbotron register-jumbotron nav-opc">
+            <h1 class="display-4 d-flex justify-content-center">Register</h1>
+            <p class="lead d-flex justify-content-center">This is a simple hero unit, a simple jumbotron-style
+                component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <form>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                 
+                  </div>
+                  <button type="submit" class="btn btn-primary">Register</button>
+
+            </form>
+        </div>
+        <div class="jumbotron login-jumbotron hide nav-opc">
+            <h1 class="display-4 d-flex justify-content-center">Register</h1>
+            <p class="lead d-flex justify-content-center">This is a simple hero unit, a simple jumbotron-style
+                component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p class="d-flex justify-content-center">It uses utility classes for typography and spacing to space
+                content out within the larger container.</p>
+            <p class="lead d-flex justify-content-center">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </p>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
@@ -65,6 +98,7 @@
         crossorigin="anonymous"></script>
     <script src="./js/ajax-logic.js"></script>
     <script src="./js/spa-logic.js"></script>
+    <script src="./js/register-login.js"></script>
 </body>
 
 </html>

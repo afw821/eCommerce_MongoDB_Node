@@ -1,11 +1,11 @@
 {
   "name": "ecommerce_mongodb_node",
   "version": "1.0.0",
-  "description": "A simple eCommerce site powered by Node",
+  "description": "A simple eCommerce site powered by node js",
   "main": "server.js",
   "scripts": {
-    "test": "y",
-    "start": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,6 @@
     "config": "^3.0.1",
     "debug": "^4.1.1",
     "express": "^4.16.4",
-    "mongoose": "^5.4.13",
-    "nodemon": "^1.18.10"
-  },
-  "devDependencies": {},
-  "keywords": []
+    "mongoose": "^5.4.13"
+  }
 }
