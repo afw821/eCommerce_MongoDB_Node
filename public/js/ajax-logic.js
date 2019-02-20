@@ -411,6 +411,7 @@ $(function () {
     $('.camping').on('click', getCamping);
 
     const getSportingLeisure = function () {
+        $('.card-div-sporting-leisure').empty();
         $.ajax({
             url: '/api/products/department/Sporting/department/Leisure',
             method: 'GET'
@@ -493,6 +494,18 @@ $(function () {
                     });
                     $('.card-div-sporting-leisure').append(cardDiv);
                     $('.jumbotron').fadeOut(200, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-all').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-fishing').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-hunting').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-camping').fadeOut(250, function () {
                         $(this).addClass('hide');
                     });
                     $('.card-div-sporting-leisure').fadeIn(500, function () {
