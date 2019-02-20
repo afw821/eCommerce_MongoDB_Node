@@ -85,6 +85,7 @@ $(function () {
 
     });
     const getFishing = function () {
+        $('.card-div-fishing').empty();
         $.ajax({
             url: 'api/products/department/Fishing',
             method: 'GET'
@@ -170,6 +171,18 @@ $(function () {
                     $('.jumbotron').fadeOut(200, function () {
                         $(this).addClass('hide');
                     });
+                    $('.card-div-all').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-hunting').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-camping').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-sporting-leisure').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
                     $('.card-div-fishing').fadeIn(500, function () {
                         return;
                     });
@@ -180,6 +193,7 @@ $(function () {
     $('.fishing').on('click', getFishing);
 
     const getHunting = function () {
+        $('.card-div-hunting').empty();
         $.ajax({
             url: '/api/products/department/Hunting',
             method: 'GET'
@@ -265,6 +279,18 @@ $(function () {
                     $('.jumbotron').fadeOut(200, function () {
                         $(this).addClass('hide');
                     });
+                    $('.card-div-camping').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-sporting-leisure').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-all').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-fishing').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
                     $('.card-div-hunting').fadeIn(500, function () {
                         return;
                     });
@@ -276,6 +302,7 @@ $(function () {
     $('.hunting').on('click', getHunting);
 
     const getCamping = function () {
+        $('.card-div-camping').empty();
         $.ajax({
             url: '/api/products/department/Camping',
             method: 'GET'
@@ -359,6 +386,18 @@ $(function () {
                     });
                     $('.card-div-camping').append(cardDiv);
                     $('.jumbotron').fadeOut(200, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-sporting-leisure').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-all').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-fishing').fadeOut(250, function () {
+                        $(this).addClass('hide');
+                    });
+                    $('.card-div-hunting').fadeOut(250, function () {
                         $(this).addClass('hide');
                     });
                     $('.card-div-camping').fadeIn(500, function () {
@@ -452,11 +491,11 @@ $(function () {
                         text: "2 Days ago",
                         appendTo: cardDiv
                     });
-                    $('.card-div-camping').append(cardDiv);
+                    $('.card-div-sporting-leisure').append(cardDiv);
                     $('.jumbotron').fadeOut(200, function () {
                         $(this).addClass('hide');
                     });
-                    $('.card-div-camping').fadeIn(500, function () {
+                    $('.card-div-sporting-leisure').fadeIn(500, function () {
                         return;
                     });
                 });
