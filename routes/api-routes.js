@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
             res.json(err);
         });
 });
+
 router.post('/', function (req, res) {
     Product.create(req.body)
         .then(function (data) {
@@ -41,14 +42,17 @@ router.get('/department/:department', (req, res) => {
         res.json(doc);
     });
 });
-router.get('/department', (req, res) => {
-    Product.find({ department: "Sporting", department: "Leisure" })
-        .then((data) => {
-            res.json(data);
-        })
-        .catch((err) => {
-            res.json(err);
-        });
+router.get('/department/:department/department/:department', async (req, res) => {
+    const products = await Product.find()
+    .or( [ { department: 'Sporting' }, { department: 'Leisure' } ] )
+    .then((data) => {
+        res.json(data);
+        res.json(products);
+    })
+    .catch((err) => {
+        res.json(err);
+    });
+   
 });
 router.put('/:id', (req, res) => {
     Product.findByIdAndUpdate(req.params.id, req.body, { new: true })

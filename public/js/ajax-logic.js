@@ -373,26 +373,13 @@ $(function () {
 
     const getSportingLeisure = function () {
         $.ajax({
-            url: '/api/products/department/Sporting',
+            url: '/api/products/department/Sporting/department/Leisure',
             method: 'GET'
         })
             .then((res) => {
                 console.log(res);
-                let closeText = '<span aria-hidden="true">&times;</span>';
-                $(res).each(function (i) {
-                    let sporting = res[i].department === "Sporting";
-                    let leisure = res[i].department === "Leisure";
-                    if(res[i].department === "Sporting" && res[i].department === "Leisure"){
-                        
-                    }
-                    $('.card-div-sporting-leisure').append(cardDiv);
-                    $('.jumbotron').fadeOut(200, function () {
-                        $(this).addClass('hide');
-                    });
-                    $('.card-div-sporting-leisure').fadeIn(500, function () {
-                        return;
-                    });
-                });
+                
+          
             }, (reason) => {
                 return reason;
             });
