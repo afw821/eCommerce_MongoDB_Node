@@ -1,4 +1,5 @@
 $(function () {
+    $('.bc-home').text('Home');
     $.ajax({
         url: '/api/products',
         method: 'GET'
@@ -170,7 +171,6 @@ $(function () {
                         src: imgUrl,
                         appendTo: cardBody
                     });
-
                     let closeButton = $('<button>', {
                         type: 'button',
                         class: 'close',
@@ -178,7 +178,6 @@ $(function () {
                         'arial-label': 'Close',
                         click: function (e) {
                             e.preventDefault();
-
                             $(this).parent().parent().fadeOut(250, function () {
                                 return;
                             });
@@ -186,7 +185,6 @@ $(function () {
                         appendTo: cardBody,
                         html: closeText
                     });
-
                     let cardTitle = $('<h5>', {
                         class: 'card-title',
                         text: `Category: ${departmentName}`,
@@ -204,9 +202,15 @@ $(function () {
                         appendTo: cardBody
                     });
                     let buttonLink = $('<a>', {
+                        class: 'add-to-cart',
+                        'data-item': productName,
                         href: '#',
                         class: 'btn btn-primary',
                         text: "Add To Cart",
+                        click: function (e) {
+                            e.preventDefault();
+                            console.log('add to cart clicked');
+                        },
                         appendTo: cardBody
                     });
 
@@ -236,7 +240,10 @@ $(function () {
                     });
 
                 });
+
+               
             });
+           
     }
     $('.fishing').on('click', getFishing);
 
@@ -632,4 +639,6 @@ $(function () {
         });
     }
     $('.sporting-leisure').on('click', getSportingLeisure);
+
+  
 });
