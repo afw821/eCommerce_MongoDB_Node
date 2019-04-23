@@ -1,11 +1,10 @@
 $(function () {
-    $('.bc-home').text('Home');
+    $('.bc-home').text('Home'); //logic for breadcrumb
+    //GET All Products on page load
     $.ajax({
         url: '/api/products',
         method: 'GET'
     }).then(function (res) {
-        console.log(res);
-        console.log(res[0].productname);
         let closeText = '<span aria-hidden="true">&times;</span>';
         let userQuantity = `<div class="form-row align-items-center">
         <div class="col-auto my-1">
@@ -24,23 +23,19 @@ $(function () {
             <option value="10">10</option>
           </select>
         </div>`
+        //loop through get request to database
         $(res).each(function (i) {
-            //console.log(res[i].productname);
-            let productName = res[i].productname;
-            //console.log(res[i].department);
-            let departmentName = res[i].department;
-            //console.log(res[i].price);
-            let price = res[i].price;
-            //console.log(res[i].stockquantity);
-            let stockQuantity = res[i].stockquantity;
-            //console.log(res[i]._id);
-            let productId = res[i].id;
-            //console.log(res[i].imgurl);
-            let imgUrl = res[i].imgurl;
-            //console.log(res[i].description);
+            //declaring variables from ajax response to add dynamic 
+            //names/ values, etc to elements
+            let productName = res[i].productname;         
+            let departmentName = res[i].department;     
+            let price = res[i].price;         
+            let stockQuantity = res[i].stockquantity;     
+            let productId = res[i].id;         
+            let imgUrl = res[i].imgurl;        
             let itemDescription = res[i].description;
             let itemSize = res[i].size;
-            //console.log(itemSize);
+
             let cardDiv = $('<div>', {
                 class: 'card text-center card-margin',
                 'data-productid': productId
@@ -107,6 +102,7 @@ $(function () {
         });
 
     });
+    
     const getFishing = function () {
         $('.card-div-fishing').empty();
         $.ajax({
@@ -535,17 +531,18 @@ $(function () {
                   </select>
                 </div>`
             $(res).each(function (i) {
-                console.log(res[i].productname);
+                console.log(res);
+                // console.log(res[i].productname);
                 let productName = res[i].productname;
-                console.log(res[i].department);
+                // console.log(res[i].department);
                 let departmentName = res[i].department;
-                console.log(res[i].price);
+                // console.log(res[i].price);
                 let price = res[i].price;
-                console.log(res[i].stockquantity);
+                // console.log(res[i].stockquantity);
                 let stockQuantity = res[i].stockquantity;
-                console.log(res[i]._id);
+                // console.log(res[i]._id);
                 let productId = res[i].id;
-                console.log(res[i].imgurl);
+                // console.log(res[i].imgurl);
                 let imgUrl = res[i].imgurl;
                 console.log(res[i].description);
                 let itemDescription = res[i].description;
