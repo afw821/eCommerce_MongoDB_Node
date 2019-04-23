@@ -122,12 +122,8 @@ $(function () {
                     $('.card-div-fishing').fadeIn(500, function () {
                         return;
                     });
-
-                });
-
-               
-            });
-           
+                });          
+            });         
     }
     $('.fishing').on('click', getFishing);
 
