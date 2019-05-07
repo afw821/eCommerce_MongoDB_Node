@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 // const path = require('path');
 
-router.get('/', (req, res) => {
+router.get('/', function (req, res) {
     Product.find({})
         .then(function (data) {
 
@@ -24,12 +24,12 @@ router.post('/', function (req, res) {
             res.json(err);
         });
 });
-router.get('/:id', (req, res) => {
+router.get('/:id', function (req, res) {
     Product.find({ _id: req.params.id })
-        .then((data) => {
+        .then(function (data) {
             res.json(data);
         })
-        .catch((err) => {
+        .catch(function (err) {
             res.json(err);
         });
 });
