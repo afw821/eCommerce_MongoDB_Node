@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const Joi = require('joi');
 const ProductSchema = new Schema ({
     productname: {
         type: String,
         required: true,
-        minlength: 1
-
+        minlength: 1,
+        maxlength: 55
     },
     department: {
         type: String,
@@ -24,7 +24,8 @@ const ProductSchema = new Schema ({
     description: {
         type: String,
         required: true,
-        minlength: 10
+        minlength: 10,
+        maxlength: 255
     },
     price: {
         type: Number,
@@ -32,7 +33,8 @@ const ProductSchema = new Schema ({
     },
     stockquantity: {
         type: Number,
-        required: true
+        required: true,
+        min: 0
     },
     productId: {
         type: Number,
@@ -41,4 +43,4 @@ const ProductSchema = new Schema ({
 });
 
 const Product = mongoose.model("Product", ProductSchema);
-module.exports = Product;
+module.exports.Product = Product;
