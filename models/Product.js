@@ -33,7 +33,11 @@ const ProductSchema = new Schema ({
     stockquantity: {
         type: Number,
         required: true
-    } 
+    },
+    productId: {
+        type: Number,
+        required: true
+    }
 });
 
 const Product = mongoose.model("Product", ProductSchema);
