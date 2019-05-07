@@ -33,7 +33,7 @@ router.get('/:id', function (req, res) {
             res.json(err);
         });
 });
-router.get('/department/:department', (req, res) => {
+router.get('/department/:department', function (req, res) {
     Product.find({ department: req.params.department }, function (err, doc) {
         if (err) {
             res.json(err);
@@ -42,24 +42,24 @@ router.get('/department/:department', (req, res) => {
         res.json(doc);
     });
 });
-router.get('/department/:department/department/:department', async (req, res) => {
+router.get('/department/:department/department/:department', async function (req, res) {
     const products = await Product.find()
     .or( [ { department: 'Sporting' }, { department: 'Leisure' } ] )
-    .then((data) => {
+    .then(function (data) {
         res.json(data);
         res.json(products);
     })
-    .catch((err) => {
+    .catch(function (err) {
         res.json(err);
     });
    
 });
-router.put('/:id', (req, res) => {
+router.put('/:id', function (req, res) {
     Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then((data) => {
+        .then(function (data) {
             res.json(data);
         })
-        .catch((err) => {
+        .catch(function (err) {
             res.json(err);
         })
 });
