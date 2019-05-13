@@ -12,11 +12,11 @@ $('.login').on('click', function(e) {
 
 const showRegisterForm = function (e) {
     e.preventDefault();
-    $('.login-jumbotron').fadeOut(500, function () {
+    $('.login-jumbotron').fadeOut(250, function () {
         $(this).addClass('hide');
     });
 
-    $('.register-jumbotron').fadeIn(500, function () {
+    $('.register-jumbotron').fadeIn(250, function () {
         $(this).removeClass('hide');
     });
 }
