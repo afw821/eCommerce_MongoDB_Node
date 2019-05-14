@@ -13,14 +13,27 @@ router.get('/', async function (req, res) {
     }
 });
 
-router.post('/', function (req, res) {
-    Product.create(req.body)
-        .then(function (data) {
-            res.json(data)
-        })
-        .catch(function (err) {
-            res.json(err);
-        });
+router.post('/', async function (req, res) {
+    // Product.create(req.body)
+    //     .then(function (data) {
+    //         res.json(data)
+    //     })
+    //     .catch(function (err) {
+    //         res.json(err);
+    //     });
+    let product = new Product({
+        productname: req.body.productname,
+        department: req.body.department,
+        imgurl: req.body.imgurl,
+        size: req.body.size,
+        description: req.body.description,
+        price: req.body.price,
+        stockquantity: req.body.stockquantity,
+        productId: req.body.productId
+    });
+
+    product  = await product.save();
+    res.send(product);
 });
 router.get('/:id', function (req, res) {
     Product.find({ _id: req.params.id })
