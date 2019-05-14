@@ -14,13 +14,7 @@ router.get('/', async function (req, res) {
 });
 
 router.post('/', async function (req, res) {
-    // Product.create(req.body)
-    //     .then(function (data) {
-    //         res.json(data)
-    //     })
-    //     .catch(function (err) {
-    //         res.json(err);
-    //     });
+
     let product = new Product({
         productname: req.body.productname,
         department: req.body.department,
@@ -35,14 +29,13 @@ router.post('/', async function (req, res) {
     product  = await product.save();
     res.send(product);
 });
-router.get('/:id', function (req, res) {
-    Product.find({ _id: req.params.id })
-        .then(function (data) {
-            res.json(data);
-        })
-        .catch(function (err) {
-            res.json(err);
-        });
+
+router.get('/:id', async function (req, res) {
+    const product = await Product.findById(req.params.id);
+
+    if(!product) return res.status(404).send('The Product with the given Id was not found');
+
+    res.send(product);
 });
 router.get('/department/:department', function (req, res) {
     Product.find({ department: req.params.department }, function (err, doc) {
