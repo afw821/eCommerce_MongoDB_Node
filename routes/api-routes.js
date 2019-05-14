@@ -40,23 +40,20 @@ router.get('/:id', async function (req, res) {
 router.get('/department/:department', async function (req, res) {
   
     const product = await Product.find({ department: req.params.department });
-    console.log(product.length);
+    
     if(product.length === 0) return res.status(404).send('The given department does not exist or is not in stock with products');
     
-    
-
     res.send(product);
 });
+
 router.get('/department/:department/department/:department', async function (req, res) {
+
     const products = await Product.find()
-    .or( [ { department: 'Sporting' }, { department: 'Leisure' } ] )
-    .then(function (data) {
-        res.json(data);
-        res.json(products);
-    })
-    .catch(function (err) {
-        res.json(err);
-    });
+    .or( [ { department: 'Sporting' }, { department: 'Leisure' } ] );
+
+    if(products.length === 0) return res.status(404).send('The given department(s) does not exist or is not in stock with products');
+
+    res.send(products);
    
 });
 router.put('/:id', function (req, res) {
