@@ -1,11 +1,14 @@
-
-const Buyer = require('../models/Buyer');
+const { Buyer, validate } = require('../models/Buyer');
 const express = require('express');
 const router = express.Router();
-
 //api routes for the buyer
 router.post('/', async function (req, res) {
+    const result = validate(req.body);
 
+    if(result.error) {
+        res.status(404).send(result.error.details[0].message);
+    }
+    
     let buyer = await Buyer.findOne({ email: req.body.email });
 
     if(buyer) return res.status(400).send('User Already Registered');
@@ -27,13 +30,7 @@ router.post('/', async function (req, res) {
     });
 });
 router.get('/', async function (req, res) {
-    // Buyer.find({})
-    // .then(function (data) {
-    //     res.json(data);
-    // })
-    // .then(function (err) {
-    //     res.json(err);
-    // });
+
     const buyers = await Buyer.find();
    
     try{
@@ -42,14 +39,13 @@ router.get('/', async function (req, res) {
         console.log(err);
     }
 });
-router.get('/:id', function (req, res) {
-    Buyer.find({ _id: req.params.id })
-    .then(function (data) {
-        res.json(data);
-    })
-    .catch(function (err) {
-        res.json(err);
-    });
+router.get('/:id', async function (req, res) {
+
+    const buyer = await Buyer.findById( req.params.id );
+
+    if(!buyer) return res.status(404).send('The buyer with the given id does not exist');
+
+    res.send(buyer);
 });
 
 module.exports = router;
