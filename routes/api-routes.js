@@ -37,14 +37,15 @@ router.get('/:id', async function (req, res) {
 
     res.send(product);
 });
-router.get('/department/:department', function (req, res) {
-    Product.find({ department: req.params.department }, function (err, doc) {
-        if (err) {
-            res.json(err);
-            return;
-        }
-        res.json(doc);
-    });
+router.get('/department/:department', async function (req, res) {
+  
+    const product = await Product.find({ department: req.params.department });
+    console.log(product.length);
+    if(product.length === 0) return res.status(404).send('The given department does not exist or is not in stock with products');
+    
+    
+
+    res.send(product);
 });
 router.get('/department/:department/department/:department', async function (req, res) {
     const products = await Product.find()
