@@ -6,7 +6,7 @@ const path = require ('path');
 const app = express();
 
 
-const PORT = process.env.PORT || 8889;
+const PORT = process.env.PORT || 8891;
 console.log(`Environment: ${process.env.NODE_ENV}`);
 // startupDebugger('working');
 const products = require('./routes/products');

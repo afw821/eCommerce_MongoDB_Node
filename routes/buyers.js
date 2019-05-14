@@ -7,8 +7,9 @@ router.post('/', async function (req, res) {
 
     if(result.error) {
         res.status(404).send(result.error.details[0].message);
+        return;
     }
-    
+
     let buyer = await Buyer.findOne({ email: req.body.email });
 
     if(buyer) return res.status(400).send('User Already Registered');
