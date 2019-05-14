@@ -68,3 +68,14 @@ const purchaseSchema = new Schema({
 });
 
 const Purchase = mongoose.model('Purchase', purchaseSchema);
+
+function validatePurchase (purchase) {
+    const schema = {
+        buyerId: Joi.string().required(),
+        productId: Joi.string().required()
+    };
+    return Joi.validate(purchase, schema);
+}
+
+module.exports.Purchase = Purchase;
+module.exports.validate = validatePurchase;
