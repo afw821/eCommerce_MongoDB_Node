@@ -1,4 +1,4 @@
-const Product = require('../models/Product')
+const { Product, validate } = require('../models/Product')
 const express = require('express');
 const router = express.Router();
 
@@ -12,7 +12,11 @@ router.get('/', async function (req, res) {
 });
 
 router.post('/', async function (req, res) {
-
+    const result = validate(req.body);
+    if(result.error) {
+        res.status(400).send(result.error.details[0].message);
+        return;
+    }
     let product = new Product({
         productname: req.body.productname,
         department: req.body.department,
