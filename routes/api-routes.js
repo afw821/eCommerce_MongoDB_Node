@@ -4,15 +4,13 @@ const express = require('express');
 const router = express.Router();
 // const path = require('path');
 
-router.get('/', function (req, res) {
-    Product.find({})
-        .then(function (data) {
-
-            res.json(data);
-        })
-        .catch(function (err) {
-            res.json(err);
-        });
+router.get('/', async function (req, res) {
+    const products = await Product.find();
+    try{
+        res.send(products);
+    } catch (err){
+        console.log(err);
+    }
 });
 
 router.post('/', function (req, res) {
