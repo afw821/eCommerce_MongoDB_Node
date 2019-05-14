@@ -56,14 +56,23 @@ router.get('/department/:department/department/:department', async function (req
     res.send(products);
    
 });
-router.put('/:id', function (req, res) {
-    Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then(function (data) {
-            res.json(data);
-        })
-        .catch(function (err) {
-            res.json(err);
-        })
+router.put('/:id', async function (req, res) {
+
+    const product = await Product.findByIdAndUpdate(req.params.id,
+        { 
+            productname: req.body.productname,
+            department: req.body.department,
+            imgurl: req.body.imgurl,
+            size: req.body.size,
+            description: req.body.description,
+            price: req.body.price,
+            stockquantity: req.body.stockquantity,
+            productId: req.body.productId
+        }, { new: true });
+    
+      if (!product) return res.status(404).send('The product with the given ID was not found.');
+
+      res.send(product);
 });
 
 module.exports = router;
