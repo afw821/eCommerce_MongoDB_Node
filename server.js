@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const path = require ('path');
 // const startupDebugger = require('debug')('app:startup');
 const app = express();
-
+const auth = require('./routes/auth');
 
 const PORT = process.env.PORT || 8891;
 console.log(`Environment: ${process.env.NODE_ENV}`);
@@ -19,6 +19,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/products', products);
 app.use('/api/buyer', buyers);
+app.use('/api/auth', auth);
 console.log(`Application Name: ${config.get('name')}`);
 console.log(`Mail Server: ${config.get('mail.host')}`);
 if(process.env.MONGODB_URI) {
