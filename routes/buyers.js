@@ -28,9 +28,16 @@ router.post('/', async function (req, res) {
     //save the new user to the database
     await buyer.save();
 
-    res.send({
+    //generate jwt in user module buyer.js
+    const token = buyer.generateAuthToken();
+    //const token = jwt.sign({ _id: user._id }, config.get('jwtPrivateKey'));
+
+    //set response header
+   //and send response
+    //exclude password from being sent
+    res.header('x-auth-token', token).send({
+        _id: buyer._id,
         firstname: buyer.firstname,
-        lastname: buyer.lastname,
         email: buyer.email
     });
 });

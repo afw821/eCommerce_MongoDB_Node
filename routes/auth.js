@@ -25,11 +25,7 @@ router.post('/', async function (req, res) {
     //generate auth token from schema method in user.js
     const token = buyer.generateAuthToken();//token generated in user.js
    
-    //res.send(true);
-    res.header('x-auth-token', token).send({
-        firstname: buyer.firstname,
-        email: buyer.email
-    });
+    res.send(token);
 
 });
 //separate validate function to validate the user
