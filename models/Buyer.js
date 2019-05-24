@@ -30,6 +30,9 @@ const BuyerSchema = new Schema ({
     }
 });
 
+
+//need method for generating auth token
+
 const Buyer = mongoose.model('Buyer', BuyerSchema);
 
 function validateBuyer(buyer) {
