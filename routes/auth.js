@@ -2,6 +2,7 @@ const Joi = require('joi');
 const { Buyer } = require('../models/Buyer');
 const express = require('express');
 const bcrypt = require('bcrypt');
+//const jwt = require('jsonwebtoken');
 const router = express.Router();
 //POSTING A LOGIN------VALIDATING AN EXISTING USER AND LOGGING HIM IN
 router.post('/', async function (req, res) {
@@ -22,9 +23,13 @@ router.post('/', async function (req, res) {
     //if password is invalid send bad request back to the client
     if(!validPassword) return res.status(400).send('invalid email or password');
     //generate auth token from schema method in user.js
-    //const token = user.generateAuthToken();//token generated in user.js
+    const token = buyer.generateAuthToken();//token generated in user.js
    
-    res.send(true);
+    //res.send(true);
+    res.header('x-auth-token', token).send({
+        firstname: buyer.firstname,
+        email: buyer.email
+    });
 
 });
 //separate validate function to validate the user

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Joi = require('joi'); 
+const config = require('config');
+const jwt = require('jsonwebtoken');
 
 const BuyerSchema = new Schema ({
     firstname: {
@@ -32,7 +34,14 @@ const BuyerSchema = new Schema ({
 
 
 //need method for generating auth token
-
+//define a method for the user schema to be used again
+BuyerSchema.methods.generateAuthToken = function () {
+    //JWT 1st-payload/ 2nd is secret key hard coded
+    //we are generating the token here
+    //THE SIGN METHOD IS WHAT IS GOING TO BE OUR PAYLOAD
+    const token = jwt.sign({ _id: this._id }, config.get('jwtPrivateKey'));
+    return token;
+}
 const Buyer = mongoose.model('Buyer', BuyerSchema);
 
 function validateBuyer(buyer) {

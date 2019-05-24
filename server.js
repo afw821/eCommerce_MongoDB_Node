@@ -22,6 +22,15 @@ app.use('/api/buyer', buyers);
 app.use('/api/auth', auth);
 console.log(`Application Name: ${config.get('name')}`);
 console.log(`Mail Server: ${config.get('mail.host')}`);
+//have to set this environment variable first
+//if it doesn't exist then exit the program
+//export AlexOutdoor_jwtPrivateKey=mySecureKey
+if(!config.get('jwtPrivateKey'))
+{
+    console.log('FATAL ERROR: jwt private key is not defined');
+    process.exit(1);
+}
+
 if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } else {
