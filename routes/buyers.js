@@ -2,6 +2,8 @@ const { Buyer, validate } = require('../models/Buyer');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 //api routes for the buyer
 //****REGISTER A NEW USER (BUYER)******//
 router.post('/', async function (req, res) {
@@ -42,7 +44,7 @@ router.post('/', async function (req, res) {
         email: buyer.email
     });
 });
-router.get('/', async function (req, res) {
+router.get('/',[auth, admin], async function (req, res) {
 
     const buyers = await Buyer.find();
 
@@ -60,5 +62,9 @@ router.get('/:id', async function (req, res) {
 
     res.send(buyer);
 });
+// router.get('/me', auth, async function(req,res) {
+//     const buyer = await Buyer.findById(req.buyer._id).select('-password');
+//     res.send(buyer);
+// });
 
 module.exports = router;
