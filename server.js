@@ -2,20 +2,16 @@ const config = require('config');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require ('path');
-// const startupDebugger = require('debug')('app:startup');
 const app = express();
 const auth = require('./routes/auth');
-
 const PORT = process.env.PORT || 8891;
 console.log(`Environment: ${process.env.NODE_ENV}`);
-// startupDebugger('working');
 const products = require('./routes/products');
 const buyers = require('./routes/buyers');
 const htmlroutes = require('./routes/html-routes')(app);
+//Middleware functions
 app.use(express.urlencoded({ extended : true}));
-
 app.use(express.json());
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/products', products);
 app.use('/api/buyer', buyers);
@@ -30,7 +26,7 @@ if(!config.get('jwtPrivateKey'))
     console.log('FATAL ERROR: jwt private key is not defined');
     process.exit(1);
 }
-
+//Connecting to Mongoose/ Mongo DB
 if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI);
 } else {
