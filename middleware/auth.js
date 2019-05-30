@@ -15,7 +15,7 @@ function auth(req, res, next) {
         //pass control to next middleware function
         next();
     } catch (error) {
-        res.status(400).send('invalid token', error);
+        res.status(400).send('invalid token');
     }
 
 }

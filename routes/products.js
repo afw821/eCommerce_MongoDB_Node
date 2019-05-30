@@ -1,6 +1,7 @@
 const { Product, validate } = require('../models/Product')
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 
 router.get('/', async function (req, res) {
     const products = await Product.find();
@@ -11,7 +12,7 @@ router.get('/', async function (req, res) {
     }
 });
 
-router.post('/', async function (req, res) {
+router.post('/',auth, async function (req, res) {
     const result = validate(req.body);
     if(result.error) {
         res.status(400).send(result.error.details[0].message);
