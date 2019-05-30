@@ -13,7 +13,7 @@ router.post('/', async function (req, res) {
         res.status(404).send(result.error.details[0].message);
         return;
     }
-    //loook up user by email to see if they already exist
+    //loook up buyer by email to see if they already exist
     let buyer = await Buyer.findOne({ email: req.body.email });
     //used to validate username and email (dont't want to tell the client why the auth failed)
     if (!buyer) return res.status(400).send('invalid email or password');
@@ -23,7 +23,7 @@ router.post('/', async function (req, res) {
     //if password is invalid send bad request back to the client
     if(!validPassword) return res.status(400).send('invalid email or password');
     //generate auth token from schema method in user.js
-    const token = buyer.generateAuthToken();//token generated in user.js
+    const token = buyer.generateAuthToken();//token generated in Buyer.js
    
     res.send(token);
 

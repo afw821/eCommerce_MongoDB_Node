@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 //api routes for the buyer
+//****REGISTER A NEW USER (BUYER)******//
 router.post('/', async function (req, res) {
     const result = validate(req.body);
 
