@@ -26,17 +26,6 @@ if (!config.get('jwtPrivateKey')) {
     process.exit(1);
 }
 //Connecting to Mongoose/ Mongo DB
-if (process.env.MONGODB_URI) {
-    mongoose.connect(process.env.MONGODB_URI);
-} else {
-    mongoose.connect('mongodb://localhost/alexs-outdoor', { useNewUrlParser: true })
-        .then(function () {
-            console.log('Connected to MongoDB')
-        }).catch(function (err) {
-            console.log('Could not connect to MongoDB..', err)
-        });
-
-}
 
 app.listen(PORT, () => {
     console.log(`App is listening on PORT: ${PORT}`);
