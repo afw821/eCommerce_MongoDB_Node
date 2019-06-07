@@ -1,7 +1,7 @@
 const express = require('express');
-const products = require('./routes/products');
-const buyers = require('./routes/buyers');
-const auth = require('./routes/auth');
+const products = require('../routes/products');
+const buyers = require('../routes/buyers');
+const auth = require('../routes/auth');
 const path = require('path');
 module.exports = function (app) {
     app.use(express.urlencoded({ extended: true }));

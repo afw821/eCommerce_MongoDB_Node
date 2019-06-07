@@ -7,7 +7,9 @@ const PORT = process.env.PORT || 8891;
 console.log(`Environment: ${process.env.NODE_ENV}`);
 // const products = require('./routes/products');
 // const buyers = require('./routes/buyers');
-const htmlroutes = require('./routes/html-routes')(app);
+require('./routes/html-routes')(app);
+require('./startup/routes')(app);
+require('./startup/db')();
 //Middleware functions
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
