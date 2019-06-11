@@ -4,6 +4,6 @@ const StateManager = {
         this._data[key] = value
     },
     GetData: function (key){
-        return this._data
+        return this._data[key]
     }
 }
